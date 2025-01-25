@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "642803531468",
+    "project_id": "playbot-28d85",
+    "storage_bucket": "playbot-28d85.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642803531468:android:3bbcdecc458d79feb8cc69",
+        "android_client_info": {
+          "package_name": "com.example.todo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642803531468-qj4dimnuifrmull8vstb36measb87r1t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFfX7XK9QYC0bG5tkZyoc2vOfqBz_uo3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642803531468-qj4dimnuifrmull8vstb36measb87r1t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "642803531468-1f54q4kumubhn2jv75eglka1og1u4oh2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ailab.polybot"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
