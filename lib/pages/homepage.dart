@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/services/app_open_service.dart';
 import '../models/product.dart';
 import '../services/api_service.dart';
 
@@ -19,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _loadProducts();
+    AppOpenService.logAppOpen();
   }
 
   Future<void> _loadProducts() async {

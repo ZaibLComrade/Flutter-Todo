@@ -12,6 +12,25 @@ class _RegisterPageState extends State<RegisterPage> {
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  bool _isLoading = false;
+
+  // Future<void> _register() async {
+  //   if (!_formKey.currentState!.validate()) return;
+
+  //   setState(() => _isLoading = true);
+  //   try {
+  //     _authService.signUp(
+  //         name: _nameController.text.trim(),
+  //         email: _emailController.text.trim(),
+  //         password: _passwordController.text);
+  //     if (mounted) Navigator.pushReplacementNamed(context, "/");
+  //   } catch (e) {
+  //     ScaffoldMessenger.of(context)
+  //         .showSnackBar(SnackBar(content: Text(e.toString())));
+  //   } finally {
+  //     setState(() => _isLoading = false);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               const SizedBox(height: 16),
               ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    // Implement registration logic
-                  }
-                },
+                onPressed: _isLoading ? null : null,
                 child: const Text('Register'),
               ),
             ],

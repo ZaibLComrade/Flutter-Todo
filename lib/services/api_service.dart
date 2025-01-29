@@ -1,16 +1,31 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:todo/utils/hmac_utils.dart';
+import "package:todo/utils/client_id_manager.dart";
 import '../models/product.dart';
 
+String baseUrl = 'http://10.0.3.1:5000/api/v1';
+
 class ApiService {
-  final String baseUrl = 'https://shutter-haven-server.vercel.app/api/v1';
+  final String baseUrl = 'http://10.0.3.1:5000/api/v1';
   final String token;
 
   ApiService({this.token = ''});
 
   Future<List<Product>> getProducts() async {
-    final response = await http.get(Uri.parse('$baseUrl/products'));
-    
+    String clientId = await ClientIdManager.getClientId();
+    String timestamp = DateTime.now().millisecondsSinceEpoch.toString();
+    String hmacSignature = await HmacUtils.generateHmac(clientId, timestamp);
+
+    final response = await http.get(
+      Uri.parse('$baseUrl/products'),
+      headers: {
+        'x-client-id': clientId,
+        'x-timestamp': timestamp,
+        'x-hmac-signature': hmacSignature,
+      },
+    );
+
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body)["data"];
       return data.map((json) => Product.fromJson(json)).toList();
